@@ -24,9 +24,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@mdi/font": "^2.8.94",
-    "electron": "^3.0.0",
-    "material-design-icons-iconfont": "^3.0.3"
+    "electron": "^3.0.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
