@@ -1,5 +1,5 @@
-// const {machineIdSync} = require('node-machine-id');
-// const machineId = machineIdSync();
+const {machineIdSync} = require('node-machine-id');
+const machine_id = machineIdSync();
 // const qrcode = require('qrcode-generator');
 //
 // var typeNumber = 4;
@@ -16,11 +16,44 @@
 //         });
 // });
 
+//
+// document.getElementById('signin').addEventListener('click', () => {
+//     axios.post(url('api/login'), {
+//
+//     }).then(response => {
+//             console.log(response.data);
+//         })
+// });
 
-document.getElementById('signin').addEventListener('click', () => {
-    axios.post(url('api/login'), {
+const fs = require('fs');
+const p = require('path');
 
-    }).then(response => {
-            console.log(response.data);
-        })
-});
+global.makeFile = function () {
+    fs.writeFileSync('example.txt', 'Hello');
+}
+
+global.url = function (path) {
+    let url = 'http://attendance.test';
+    if(path.startsWith('/')){
+        url += path;
+    }else{
+        url += '/' + path
+    }
+
+    return url;
+}
+
+global.path = function (path) {
+    let fullPath = p.resolve('./public/index.html');
+    if(path.startsWith('/')){
+        fullPath += path;
+    }else{
+        fullPath += '/' + path
+    }
+
+    return fullPath;
+};
+
+global.machineId = function () {
+    return machine_id;
+};
