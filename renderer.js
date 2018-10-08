@@ -27,13 +27,14 @@ const machine_id = machineIdSync();
 
 const fs = require('fs');
 const p = require('path');
+require('./env');
 
 global.makeFile = function () {
     fs.writeFileSync('example.txt', 'Hello');
 }
 
 global.url = function (path) {
-    let url = 'http://attendance.test';
+    let url = env.api_url;
     if(path.startsWith('/')){
         url += path;
     }else{
