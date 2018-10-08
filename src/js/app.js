@@ -63,4 +63,4 @@ new Vue({
     props: {
         source: String
     },
-})
+});
