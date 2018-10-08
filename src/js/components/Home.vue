@@ -1,5 +1,6 @@
 <template>
     <v-content>
+        <h1>HOME</h1>
         <h1 v-if="!can_access">{{message}}</h1>
         <h1 v-if="can_access">Here are what you can access</h1>
         <div id="placeHolder"></div>

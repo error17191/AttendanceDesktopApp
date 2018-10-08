@@ -5,7 +5,7 @@ window.auth_user = JSON.parse(localStorage.getItem('auth_user'))
 
 
 window.axios = require('axios');
-if(window.access_token){
+if (window.access_token) {
     console.log(window.access_token);
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.access_token;
 }
@@ -15,33 +15,33 @@ window.qrcode = require('qrcode-generator');
 import Login from './components/Login';
 import Home from './components/Home';
 
+Vue.component('login', Login);
 import VueRouter from 'vue-router';
 
 window.router = new VueRouter({
-    mode: 'history',
     routes: [
         {
-            path: path('/'),
-            component: Home
+            path: '',
+            component: Home,
+            name: 'home'
         },
         {
-            path: path('/login'),
-            component: Login
+            path: 'login',
+            component: Login,
+            name: 'login'
         },
     ]
 });
 
 router.beforeEach((to, from, next) => {
-    if(to.path == path('/login')){
+    if (to.name == 'login') {
         next();
         return;
     }
     if (access_token != null && auth_user != null) {
         next();
-    }
-
-    else {
-        router.push(path('/login'));
+    }else {
+        router.push({name: 'login'});
     }
 });
 

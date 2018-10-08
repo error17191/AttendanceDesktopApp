@@ -45,7 +45,7 @@
                         window.access_token = response.data.access_token;
                         localStorage.setItem('auth_user', JSON.stringify(response.data.user));
                         window.auth_user = response.data.user;
-                        this.$router.push(path('/'));
+                        this.$router.push({name: 'home'});
                     });
             }
         }
