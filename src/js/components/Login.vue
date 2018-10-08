@@ -45,6 +45,7 @@
                         window.access_token = response.data.access_token;
                         localStorage.setItem('auth_user', JSON.stringify(response.data.user));
                         window.auth_user = response.data.user;
+                        axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.access_token;
                         this.$router.push({name: 'home'});
                     });
             }
