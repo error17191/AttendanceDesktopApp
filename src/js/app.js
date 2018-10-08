@@ -6,7 +6,6 @@ window.auth_user = JSON.parse(localStorage.getItem('auth_user'))
 
 window.axios = require('axios');
 if (window.access_token) {
-    console.log(window.access_token);
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.access_token;
 }
 

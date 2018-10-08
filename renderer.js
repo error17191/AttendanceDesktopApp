@@ -27,7 +27,8 @@ const machine_id = machineIdSync();
 
 const fs = require('fs');
 const p = require('path');
-require('./env');
+
+require(p.resolve('./env.js'));
 
 global.makeFile = function () {
     fs.writeFileSync('example.txt', 'Hello');
