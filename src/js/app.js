@@ -8,6 +8,20 @@ window.axios = require('axios');
 if (window.access_token) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.access_token;
 }
+import Echo from 'laravel-echo'
+
+window.io = require('socket.io-client');
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    auth:
+        {
+            headers:
+                {
+                    'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+                }
+        },
+    host: "http://localhost" + ':6001'
+});
 
 window.qrcode = require('qrcode-generator');
 

@@ -17,6 +17,7 @@
             };
         },
         mounted() {
+
             axios.post(url('/machine/check'), {machine_id: machineId()})
                 .then(response => {
                     if (response.data.status != 'success') {
