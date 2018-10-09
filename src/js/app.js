@@ -1,13 +1,14 @@
 // import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure you are using css-loader
 // import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
-window.access_token = localStorage.getItem('access_token')
-window.auth_user = JSON.parse(localStorage.getItem('auth_user'))
+window.access_token = localStorage.getItem('access_token');
+window.auth_user = JSON.parse(localStorage.getItem('auth_user'));
 
 
 window.axios = require('axios');
 if (window.access_token) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.access_token;
 }
+
 import Echo from 'laravel-echo'
 
 window.io = require('socket.io-client');
