@@ -1,9 +1,14 @@
 <template>
     <v-content>
-        <h1>HOME</h1>
-        <h1 v-if="!can_access">{{message}}</h1>
-        <h1 v-if="can_access">Here are what you can access</h1>
-        <div id="placeHolder"></div>
+        <h1 v-if="done">
+            Machine Added Successfully
+        </h1>
+        <div v-else>
+            <h1>HOME</h1>
+            <h1 v-if="!can_access">{{message}}</h1>
+            <h1 v-if="can_access">Here are what you can access</h1>
+            <div id="placeHolder"></div>
+        </div>
     </v-content>
 </template>
 
@@ -13,10 +18,15 @@
         data() {
             return {
                 can_access: false,
-                message: null
+                message: null,
+                done: false
             };
         },
         mounted() {
+            window.Echo.channel('test-event')
+                .listen('TestEvent', (e) => {
+                    this.done = true;
+                });
 
             axios.post(url('/machine/check'), {machine_id: machineId()})
                 .then(response => {

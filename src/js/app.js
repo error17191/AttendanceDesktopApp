@@ -23,6 +23,9 @@ window.Echo = new Echo({
     host: "http://localhost" + ':6001'
 });
 
+
+
+
 window.qrcode = require('qrcode-generator');
 
 import Login from './components/Login';
