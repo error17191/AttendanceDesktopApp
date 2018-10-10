@@ -27,6 +27,7 @@ window.Echo = new Echo({
 
 
 
+window.qrcode = require('qrcode-generator');
 
 import Login from './components/Login';
 import Home from './components/Home';
