@@ -34,6 +34,7 @@
     "laravel-echo": "^1.4.0",
     "laravel-mix": "^2.0",
     "node-machine-id": "^1.1.10",
+    "qrcode-generator": "^1.4.1",
     "socket.io-client": "^2.1.1",
     "vue": "^2.5.7",
     "vue-router": "^3.0.1",
