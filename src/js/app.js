@@ -10,6 +10,12 @@ if (window.access_token) {
 }
 
 import Echo from 'laravel-echo'
+import VueElementLoading from 'vue-element-loading';
+
+Vue.component('VueElementLoading', VueElementLoading);
+import Multiselect from 'vue-multiselect';
+
+Vue.component('multiselect', Multiselect)
 
 window.io = require('socket.io-client');
 window.Echo = new Echo({
@@ -23,6 +29,20 @@ window.Echo = new Echo({
         },
     host: "http://localhost" + ':6001'
 });
+window.makeRequest = (params) => {
+    if (params.method == 'get' && !params.cache) {
+        // params.url = params.url + '?t=' + new Date().getTime();
+    }
+    params.url=url(params.url);
+    return new Promise((resolve) => {
+        let promise = axios.request(params)
+            .then(resolve)
+            .catch((error) => {
+                //error.response.status
+                // window.location.reload();
+            })
+    });
+};
 
 
 
