@@ -109,7 +109,7 @@
                                         You have worked extra
                                         {{monthStats ? timePartitionsFormatted(monthStats.diff.partitions) : null}}
                                         </div>
-                                        <div v-else class="text-danger">
+                                        <div v-else>
                                         You have to work {{monthStats ? timePartitionsFormatted(monthStats.diff.partitions): null}}
                                         </div>
                                     </v-list-tile-title>

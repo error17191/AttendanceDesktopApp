@@ -32,7 +32,7 @@ require(p.resolve('./env.js'));
 
 global.makeFile = function () {
     fs.writeFileSync('example.txt', 'Hello');
-}
+};
 
 global.url = function (path) {
     let url = env.api_url;
@@ -43,7 +43,7 @@ global.url = function (path) {
     }
 
     return url;
-}
+};
 
 global.path = function (path) {
     let fullPath = p.resolve('./public/index.html');

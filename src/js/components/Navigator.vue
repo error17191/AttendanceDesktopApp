@@ -70,7 +70,7 @@
         created() {
             this.user = auth_user;
             if(this.user.is_admin){
-                this.items.push({title:'Monitor',icon:''})
+                this.items.push({title:'Monitor',icon:''});
                 this.items.push({title:'Users',icon:''})
             }
             else{
