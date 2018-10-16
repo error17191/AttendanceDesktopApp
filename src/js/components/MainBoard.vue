@@ -72,7 +72,7 @@
                                 </v-list-tile-content>
 
                             </v-list-tile>
-                            <v-list-tile v-for="sign in signs" >
+                            <v-list-tile v-for="sign in signs" :key="sign.id">
 
                                 <v-list-tile-content>
                                     <v-list-tile-title>

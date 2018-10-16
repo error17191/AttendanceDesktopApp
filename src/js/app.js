@@ -90,7 +90,7 @@ Vue.use(VueRouter);
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
 
-new Vue({
+window.app =new Vue({
     router,
     el: '#app',
     data: () => ({
