@@ -287,7 +287,7 @@
                 let data = {workStatus: this.workStatus};
                 makeRequest({
                     method: 'post',
-                    url: '/start_work',
+                    url: `/start_work/${machineId()}`,
                     data: data
                 }).then((response) => {
                     this.status = 'on';
@@ -300,7 +300,7 @@
             stopWork() {
                 makeRequest({
                     method: 'post',
-                    url: '/stop_work'
+                    url: `/stop_work/${machineId()}`
                 }).then((response) => {
                     if (this.flagInUse !== '') {
                         this.getStats();
