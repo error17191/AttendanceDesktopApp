@@ -41,6 +41,7 @@
                                     @click="stopWork()"
                                     class="btn btn-lg btn-block"
                                     color="error"
+                                    :disabled="disabled"
                             >Stop Work
                             </v-btn>
                             <v-btn v-else
@@ -48,6 +49,8 @@
                                    :disabled="workStatus == ''"
                                    class="btn btn-lg btn-block"
                                    color="success"
+                                   :disabled="disabled"
+
                             >Start Work
                             </v-btn>
 
@@ -235,8 +238,10 @@
                 loadingSearch: false,
                 flagInUse: '',
                 primary: 'primary',
-                dark: 'dark'
-            }
+                dark: 'dark',
+               disabled:true
+
+        }
         },
         mounted() {
             this.getStats();
@@ -446,6 +451,14 @@
                     this.monthStats.diff.partitions.minutes == 0 &&
                     this.monthStats.diff.partitions.seconds == 0) {
                     this.monthStats.diff.type = 'more';
+                }
+            },
+            workStatus:function () {
+                if(this.length>0){
+                   this.disabled=true;
+                }
+                else{
+                    this.disabled=false;
                 }
             }
         }
