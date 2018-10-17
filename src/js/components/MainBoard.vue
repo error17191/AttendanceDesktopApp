@@ -284,10 +284,10 @@
                 });
             },
             startWork() {
-                let data = {workStatus: this.workStatus};
+                let data = {workStatus: this.workStatus,machine_id: machineId()};
                 makeRequest({
                     method: 'post',
-                    url: `/start_work/${machineId()}`,
+                    url: '/start_work',
                     data: data
                 }).then((response) => {
                     this.status = 'on';
@@ -300,7 +300,8 @@
             stopWork() {
                 makeRequest({
                     method: 'post',
-                    url: `/stop_work/${machineId()}`
+                    url: '/stop_work',
+                    data : {machine_id : machineId()}
                 }).then((response) => {
                     if (this.flagInUse !== '') {
                         this.getStats();

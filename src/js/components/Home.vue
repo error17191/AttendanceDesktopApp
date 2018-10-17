@@ -8,7 +8,10 @@
         <v-content>
             <v-container fluid>
                 <div v-if="view">
-                    <div v-if="view =='qrcode'" id="placeHolder" class="mt-5 ml-5"></div>
+                    <v-layout v-if="view =='qrcode'" class="row align-center column">
+                        <h1>Please ask admin to scan your machine QR</h1>
+                        <div id="placeHolder" class="mt-5"></div>
+                    </v-layout>
                     <MainBoard v-else></MainBoard>
                 </div>
                 <h1 v-if="done">
@@ -45,6 +48,7 @@
             window.Echo.channel('test-event')
                 .listen('TestEvent', (e) => {
                     this.done = true;
+                    this.view = 'board';
                 });
             axios.get(url(`check/user/work/${this.user.id}`)).then(response => {
                 if(response.data.work_anywhere.work_anywhere){
