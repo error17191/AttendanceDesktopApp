@@ -41,7 +41,6 @@
                                     @click="stopWork()"
                                     class="btn btn-lg btn-block"
                                     color="error"
-                                    :disabled="disabled"
                             >Stop Work
                             </v-btn>
                             <v-btn v-else
@@ -49,8 +48,6 @@
                                    :disabled="workStatus == ''"
                                    class="btn btn-lg btn-block"
                                    color="success"
-                                   :disabled="disabled"
-
                             >Start Work
                             </v-btn>
 

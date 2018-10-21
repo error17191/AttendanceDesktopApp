@@ -82,6 +82,15 @@ router.beforeEach((to, from, next) => {
     }
 });
 
+if(auth_user){
+    axios.post('/me').then(response=>{
+        localStorage.removeItem('auth_user');
+        console.log(response.data);
+        localStorage.setItem('auth_user',JSON.stringify(response.data));
+
+    });
+}
+
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 

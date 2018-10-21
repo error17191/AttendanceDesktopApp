@@ -33,7 +33,7 @@
             <v-list-tile
                     v-for="item in items"
                     :key="item.title"
-                    @click=""
+                    @clic++k=""
             >
                 <v-list-tile-action>
                     <v-icon>{{ item.icon }}</v-icon>
